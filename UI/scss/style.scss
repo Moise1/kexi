@@ -782,6 +782,10 @@ img {
     }
 }
 
+
+.single-portfolio-item .portfolio-thumb img{
+    border: 2px solid green;
+}
 .single-portfolio-item {
     position: relative;
     z-index: 1;
