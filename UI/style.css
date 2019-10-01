@@ -958,7 +958,8 @@ img {
   position: relative;
   z-index: 1;
   margin-bottom: 50px; }
-  .single-services-area img {
+  .single-services-area img{
+    width: 15%;
     margin-bottom: 20px; }
   .single-services-area h4 {
     font-size: 28px;
@@ -1188,18 +1189,19 @@ img {
     margin-bottom: 0; }
 
 /* :: Contact Area CSS */
-.contact-form h2 {
-  font-size: 72px;
-  margin-bottom: 15px;
+
+.contact-form h3 {
+  font-size: 30px;
+  margin-bottom: 35px;
   font-weight: 100; }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .contact-form h2 {
-      font-size: 55px; } }
+    .contact-form h3 {
+      font-size: 30px; } }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .contact-form h2 {
+    .contact-form h3 {
       font-size: 36px; } }
   @media only screen and (max-width: 767px) {
-    .contact-form h2 {
+    .contact-form h3 {
       font-size: 30px; } }
 .contact-form h4 {
   font-size: 48px;
@@ -1233,6 +1235,7 @@ img {
     padding: 15px; }
 
 .map-area {
+  border: 2px solid blue;
   position: relative;
   z-index: 1;
   margin: 0 50px; }
