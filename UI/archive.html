@@ -6,33 +6,15 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>KEXI CONSULT Ltd | Blog</title>
+    <title>KEXI CONSULT Ltd | Archive</title>
     <link rel="icon" href="img/core-img/kexi_icon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
 </head>
 
-<body>
-    <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="preload-content">
-            <div id="sonar-load"></div>
-        </div>
-    </div>
-    <!-- Preloader End -->
-
-    <!-- Grids -->
-    <div class="grids d-flex justify-content-between">
-        <div class="grid1"></div>
-        <div class="grid2"></div>
-        <div class="grid3"></div>
-        <div class="grid4"></div>
-        <div class="grid5"></div>
-        <div class="grid6"></div>
-        <div class="grid7"></div>
-        <div class="grid8"></div>
-        <div class="grid9"></div>
-    </div>
+<body class="body-container">
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
@@ -48,8 +30,8 @@
                         <div class="menu-content-area d-flex align-items-center">
                             <!-- Header Menu Area -->
                             <div class="header-menu-area d-flex align-items-center">
-                                <a  href="index.html" class="nav-link">Home</a>
-                                <a href="about-us.html"  class="nav-link">About Us</a>
+                                <a href="index.html" class="nav-link">Home</a>
+                                <a href="about-us.html" class="nav-link">About Us</a>
                                 <a href="services.html" class="nav-link">Services</a>
                                 <a href="clients.html" class="nav-link">Our Clients</a>
                                 <a href="contact.html" class="nav-link">Contact</a>
@@ -63,68 +45,145 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Hero Area Start ***** -->
-    <div class="hero-area align-items-center">
-        <!-- Hero Content -->
-        <div class="hero-content equalize">
-            <div class="container-fluid h-100">
-                <div class="row h-100 align-items-center justify-content-center">
-                   <h2 class="page-identity">Archive</h2>
+    <!-- Registration Forms Start -->
+
+
+    <div class="container form-container">
+        <div class="col-sm-8 ml-auto mr-auto">
+            <ul class="nav nav-pills nav-fill mb-1" id="pills-tab" role="tablist">
+                <li class="nav-item"> 
+                    <a class="nav-link active" id="pills-signin-tab" data-toggle="pill"
+                        href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab"
+                        aria-controls="pills-signup" aria-selected="false">
+                        Sign Up</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-signin" role="tabpanel"
+                    aria-labelledby="pills-signin-tab">
+                    <div class="col-sm-12 border border-success shadow">
+
+                        <form method="post" id="singninFrom" class="col-4 offset-4">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Email <span class="text-danger">*</span></label>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Enter valid email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold">Password <span class="text-danger">*</span></label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    placeholder="***********" required>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="condition" id="condition"> Remember me.
+                                </label>
+                                <div class="text-left">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#forgotPass" class="text-success">Forgot
+                                        Password?</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Sign In" class="btn btn-block btn-success">
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
+                <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
+                    <div class="col-sm-12 border border-success shadow">
+
+                        <form method="post" id="singnupFrom">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label class="font-weight-bold">Email<span class="text-danger">*</span></label>
+                                    <input type="email" name="signupemail" id="signupemail" class="form-control"
+                                        placeholder="Enter valid email" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="font-weight-bold">User Name <span class="text-danger">*</span></label>
+                                    <input type="text" name="signupusername" id="signupusername" class="form-control"
+                                        placeholder="Choose your user name" required>
+                                    <div class="text-danger"><em>This will be your login name!</em></div>
+                                </div>
+                            
+                                <div class="form-group col-6">
+                                    <label class="font-weight-bold">Password <span class="text-danger">*</span></label>
+                                    <input type="password" name="signuppassword" id="signuppassword"
+                                        class="form-control" placeholder="***********" pattern="^\S{6,}$"
+                                        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"
+                                        required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="font-weight-bold">Confirm Password <span
+                                            class="text-danger">*</span></label>
+                                    <input type="password" name="signupcpassword" id="signupcpassword"
+                                        class="form-control" pattern="^\S{6,}$"
+                                        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"
+                                        placeholder="***********" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                        <input type="submit" name="signupsubmit" value="Sign Up"
+                                            class="btn btn-block btn-success signup">
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="forgotPass" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form method="post" id="forgotpassForm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Forgot Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                    aria-hidden="true">&times;</span> </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label id="passRetrieve">Email <span class="text-danger">*</span></label>
+                                <input type="email" name="forgotemail" id="forgotemail" class="form-control"
+                                    placeholder="Enter your valid email..." required>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign In</button>
+                            <button type="submit" name="forgotPass" class="btn btn-primary"><i
+                                    class="fa fa-envelope"></i> Send Request</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <!-- ***** Hero Area End ***** -->
 
-    <!-- **** Login Form Modal Start **** -->
 
-     <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Welcome to W3lessons!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Registration Forms End -->
 
-    <!-- ***** Blog Area Start ***** -->
-    <section class="sonar-blog-area section-padding-100">
-        <!-- back end content -->
-        <div class="backEnd-content">
-            <img class="dots" src="img/core-img/dots.png" alt="">
-        </div>
-
-        <div class="container">
-            <div class="row">
-                
-            </div>
-        </div>
-    </section>
-    <!-- ***** Blog Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
-        <!-- back end content -->
-        <div class="backEnd-content">
-            <img class="dots" src="img/core-img/dots.png" alt="">
-            <h2>Dream</h2>
-        </div>
 
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <!-- Copywrite Text -->
                     <div class="copywrite-text">
-                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>&nbsp; KEXI CONSULT Ltd. All rights reserved.</p>
-                    </div> 
+                        <p style="color: #fff;">Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script>&nbsp; KEXI CONSULT Ltd. All rights reserved.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,6 +204,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 
 </html>
