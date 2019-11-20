@@ -1,0 +1,48 @@
+{
+  "name": "kexi",
+  "version": "1.0.0",
+  "description": "this is an website that will help you get all accounting-related services",
+  "main": "server.js",
+  "scripts": {
+    "db:droptables": "node --require @babel/register ./SERVER/db/dropTables.js",
+    "db:migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
+    "start": "npm run db:droptables && npm run db:migrate && babel-watch  ./SERVER/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moise1/kexi.git"
+  },
+  "keywords": [
+    "accounting"
+  ],
+  "author": "Moise1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moise1/kexi/issues"
+  },
+  "homepage": "https://github.com/Moise1/kexi#readme",
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "@hapi/joi": "^16.1.7",
+    "babel-cli": "^6.26.0",
+    "babel-watch": "^7.0.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "multer": "^1.4.2",
+    "pg": "^7.12.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/register": "^7.4.0"
+  }
+}
