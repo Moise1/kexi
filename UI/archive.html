@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>KEXI CONSULT Ltd | Archive</title>
+    <title>KEXI CONSULT Ltd | Authentication</title>
     <link rel="icon" href="img/core-img/kexi_icon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -53,12 +53,12 @@
             <ul class="nav nav-pills nav-fill mb-1" id="pills-tab" role="tablist">
                 <li class="nav-item"> 
                     <a class="nav-link active" id="pills-signin-tab" data-toggle="pill"
-                        href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Sign In</a>
+                        href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Log In</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab"
                         aria-controls="pills-signup" aria-selected="false">
-                        Sign Up</a>
+                        Create Account</a>
                 </li>
             </ul>
 
@@ -67,7 +67,7 @@
                     aria-labelledby="pills-signin-tab">
                     <div class="col-sm-12 border border-success shadow">
 
-                        <form method="post" id="singninFrom" class="col-4 offset-4">
+                        <form id="singninFrom" class="col-4 offset-4">
                             <div class="form-group">
                                 <label class="font-weight-bold">Email <span class="text-danger">*</span></label>
                                 <input type="email" name="email" id="email" class="form-control"
@@ -88,7 +88,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" value="Sign In" class="btn btn-block btn-success">
+                                <button 
+                                    type="button" 
+                                    name="submit" 
+                                    value="Sign In" 
+                                    class="btn btn-block btn-success" 
+                                    id="loginBtn" 
+                                    onclick="formValidator()">Log In
+                            </button>
                             </div>
                         </form>
                     </div>
@@ -97,7 +104,7 @@
                 <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
                     <div class="col-sm-12 border border-success shadow">
 
-                        <form method="post" id="singnupFrom">
+                        <form id="singnupFrom">
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label class="font-weight-bold">Email<span class="text-danger">*</span></label>
@@ -128,8 +135,15 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                        <input type="submit" name="signupsubmit" value="Sign Up"
-                                            class="btn btn-block btn-success signup">
+                                        <button 
+                                            type="button" 
+                                            name="signupsubmit" 
+                                            value="Sign Up" 
+                                            class="btn btn-block btn-success signup"
+                                             id="createBtn"
+                                             onclick="formValidator()"
+                                             >Create Account
+                                        </button>
                                 </div>
 
                             </div>
@@ -154,8 +168,7 @@
                                 <input type="email" name="forgotemail" id="forgotemail" class="form-control"
                                     placeholder="Enter your valid email..." required>
                             </div>
-                            <div class="form-group">
-                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign In</button>
@@ -208,6 +221,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Redirect to All Files/Documents -->
+    <script src="./js/archive.js"></script>
 </body>
 
 </html>
