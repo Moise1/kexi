@@ -43,10 +43,12 @@
 
 <main class="main-container">
 
-    <div class="new-file">
-        <label class="btn btn-success add" for="addFile"> Upload File</label>
-        <input type="file" id="addFile"/>
-    </div>
+   <form action="POST" action="/upload" enctype="multipart/form-data">
+        <div class="new-file">
+            <label class="btn btn-success add" for="addFile"> Upload File</label>
+            <input type="file" id="addFile" name="file-upload"/> 
+        </div>
+   </form>
 
     <div class="files-container">
 
