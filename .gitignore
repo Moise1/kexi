@@ -2,4 +2,7 @@
 node_modules/ 
 
 #env_file
-.env
+.env 
+
+# Git attributes 
+.gitattributes 

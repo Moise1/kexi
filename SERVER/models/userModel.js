@@ -8,16 +8,15 @@ class UserModel {
 
     static async create(req){
 
-        const  { first_name, last_name, email, password} = req;
 
-        const encrypted_password = await hashingPassword(password, 10);
+        const {signup_first_name, signup_last_name, signup_email, signupcpassword } = req;
 
         const new_user = {
             user_id: uuid(),
-            first_name, 
-            last_name, 
-            email: email.toLowerCase(), 
-            encrypted_password
+            signup_first_name: signup_first_name, 
+            signup_last_name: signup_last_name, 
+            signup_email: signup_email.toLowerCase(), 
+            signupcpassword: await hashingPassword(signupcpassword, 10)
         };
 
 
@@ -25,10 +24,10 @@ class UserModel {
 
         const values = [
             new_user.user_id,
-            new_user.first_name,
-            new_user.last_name,
-            new_user.email,
-            encrypted_password
+            new_user.signup_first_name,
+            new_user.signup_last_name,
+            new_user.signup_email,
+            new_user.signupcpassword
         ];
         const queryResult = await db.query(queryText, values); 
         return queryResult;
@@ -37,8 +36,7 @@ class UserModel {
 
     static async findMail(email){
         const queryText = "SELECT * FROM users WHERE email=$1";
-        const mailResult = email.toLowerCase();
-        const mailData = await db.query(queryText, [mailResult]);
+        const mailData = await db.query(queryText, [email]);
         return mailData;
     }
 

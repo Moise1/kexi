@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img/core-img/kexi_icon.ico">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/files.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="css/files.css">
 
     <title>KEXI | Files </title>
 </head>
@@ -43,10 +43,14 @@
 
 <main class="main-container">
 
-   <form action="POST" action="/upload" enctype="multipart/form-data">
+   <form method="POST" action="/upload" enctype="multipart/form-data">
         <div class="new-file">
-            <label class="btn btn-success add" for="addFile"> Upload File</label>
-            <input type="file" id="addFile" name="file-upload"/> 
+            <label class="btn btn-success add" for="addFile"> Choose File</label>
+            <input type="file" id="addFile" name="files"/> 
+        </div>
+
+        <div class="upload">
+            <input type="submit" id="uploadFile" name="uplod_button"  value="Upload" class="btn btn-success"/> 
         </div>
    </form>
 

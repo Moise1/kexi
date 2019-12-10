@@ -11,54 +11,49 @@ class User {
        
         try{
 
+            const oneMail = await UserModel.findMail(req.body.signup_email);
 
-            const oneMail = await UserModel.findMail(req.body.email);
+            if(oneMail.rows.length !== 0){
+                return res
+                .status(409)
+                .json(new ResponseHandler(409, 'Sorry! Email already taken.').result());
+            }
+        
+            const {rows} = await UserModel.create(req.body);
 
-            if(oneMail.rows.length !== 0) 
-            return res
-            .status(409)
-            .json(new ResponseHandler(409, 'Sorry! Email already taken.', null).result()); 
+            const path = req.params[0] ? req.params[0]: 'files.html';
 
-            const {
-                rows
-            } = await UserModel.create(req.body);
-
+            return res.sendFile(path, {root: "./UI"} );
             
-            const token = tokenMan.tokenizer({
-                user_id: rows[0].user_id
-            });
+            // return res.send(rows);
+
+            // const token = tokenMan.tokenizer({
+            //     user_id: rows[0].user_id
+            // });
                       
-           
-            return res
-            .status(201)
-            .json(new ResponseHandler(201, 'User created successfully.', rows[0]).result());
-            
+                    
         }catch(error){
             return res 
             .status(500) 
-            .json(new ResponseHandler(500, error.message, null, error).result())
+            .send(new ResponseHandler(500, error.message, null, error).result())
         }
 
     }
 
     static async SignIn(req, res){
+
       
         try{
-            const {
-                email,
-                password
-            } = req.body;
+           
+            const {email, password} = req.body;
 
             // Check if email exists.
-            const {
-                rows
-            } = await UserModel.findMail(email);
-
+            const {rows} = await UserModel.findMail(email);
 
                 if (rows.length === 0) {
                     return res
                     .status(404) 
-                    .json(new ResponseHandler(404, `User with email ${email} is not found!`, null).result());
+                    .send(new ResponseHandler(404, `User with email ${email} is not found!`, null).result());
                 }
 
                 const matcher = await isSame(password, rows[0].password);
@@ -66,27 +61,35 @@ class User {
                 if (!matcher) {
                     return res
                     .status(401) 
-                    .json(new ResponseHandler(401, "Invalid Password").result());
-                }
+                    .send(new ResponseHandler(401, "Invalid Password").result());
+                }; 
 
-                const token = await tokenMan.tokenizer({
-                    user_id: rows[0].user_id
-                });
 
-                const returnedResponse = {
-                    token: token, 
-                    ...lodash.omit(rows[0], ['password'])
-                }
-                return res
-                .header('Authorization', `Bearer ${token}`)
-                .status(200)
-                .json(new ResponseHandler(200, "Successfully Signed In.", returnedResponse).result())
+                const path = req.params[0] ? req.params[0]: 'files.html';
+
+                return res.sendFile(path, {root: "./UI"} );
+
+                // Generating user token.
+
+
+                // const token = await tokenMan.tokenizer({
+                //     user_id: rows[0].user_id
+                // });
+
+                // const returnedResponse = {
+                //     token: token, 
+                //     ...lodash.omit(rows[0], ['password'])
+                // }
+
+                // .header('Authorization', `Bearer ${token}`)
+                // .status(200)
+                // .send(new ResponseHandler(200, "Successfully Signed In.", rows[0]).result())
 
 
         }catch(error){
             return res
             .status(500)
-            .json(new ResponseHandler(500, error.message, null, error).result())
+            .send(new ResponseHandler(500, error.message, null, error).result())
         }
         
     }

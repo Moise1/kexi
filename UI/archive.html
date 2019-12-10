@@ -67,7 +67,7 @@
                     aria-labelledby="pills-signin-tab">
                     <div class="col-sm-12 border border-success shadow">
 
-                        <form id="singninFrom" class="col-4 offset-4">
+                        <form id="singninFrom" class="col-4 offset-4" action="/signInFiles" method="POST">
                             <div class="form-group">
                                 <label class="font-weight-bold">Email <span class="text-danger">*</span></label>
                                 <input type="email" name="email" id="email" class="form-control"
@@ -89,8 +89,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="button" name="submit" value="Sign In" class="btn btn-block btn-success"
-                                    id="loginBtn" onclick="formValidator()">Log In
+                                <button type="submit" name="submit" value="Sign In" class="btn btn-block btn-success"
+                                    id="loginBtn">Log In
                                 </button>
                             </div>
                         </form>
@@ -100,39 +100,40 @@
                 <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
                     <div class="col-sm-12 border border-success shadow">
 
-                        <form id="singnupFrom">
+                        <form id="singnupFrom" action="/signUpFiles" method="POST">
                             <div class="row">
 
-                                <div class="form-group col-6">
+                                <div class="form-group col-6"> 
                                     <label class="font-weight-bold">First Name <span class="text-danger">*</span></label>
-                                    <input type="text" name="signupfirstname" id="signupfirstname" class="form-control"
-                                        placeholder="First name..." required>
+                                    <input type="text" name="signup_first_name" id="signup_first_name" class="form-control"
+                                        placeholder="First name..." autocomplete="off" quired>
                                 </div>
 
                                 <div class="form-group col-6">
                                         <label class="font-weight-bold">Last Name <span class="text-danger">*</span></label>
-                                        <input type="text" name="signuplastname" id="signuplastname" class="form-control"
-                                            placeholder="Last name..." required>
+                                        <input type="text" name="signup_last_name" id="signup_last_name" class="form-control"
+                                            placeholder="Last name..." autocomplete="off"  required>
                                     </div>
 
                                 <div class="form-group col-6">
                                     <label class="font-weight-bold">Email<span class="text-danger">*</span></label>
-                                    <input type="email" name="signupemail" id="signupemail" class="form-control"
-                                        placeholder="Enter valid email" required>
+                                    <input type="email" name="signup_email" id="signup_email" class="form-control"
+                                        placeholder="Enter valid email" autocomplete="off" required>
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label class="font-weight-bold">Password <span class="text-danger">*</span></label>
-                                    <input type="password" name="signuppassword" id="signuppassword"
-                                        class="form-control" placeholder="***********" pattern="^\S{6,}$"
-                                        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"
+                                    <input type="password" name="signupcpassword" id="signupcpassword"
+                                        class="form-control" placeholder="***********" autocomplete="off"
+                                        pattern="^\S{6,}$" 
+                                        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"     
                                         required>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="button" name="signupsubmit" value="Sign Up"
+                                    <button type="submit" name="signup_submit" value="Sign Up"
                                         class="btn btn-block btn-success signup" id="createBtn"
-                                        onclick="formValidator()">Create Account
+                                      >Create Account
                                     </button>
                                 </div>
 
