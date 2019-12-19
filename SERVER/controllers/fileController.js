@@ -74,13 +74,9 @@ class FileContainer {
                 
                 req.files.filter(async f => {
                    const {rows} = await FileModel.create(f.filename, f.mimetype, f.size)
-                    console.log("THE ROWS:", rows);
                 });
 
-                
-                // return  res
-                //     .status(201)
-                //     .json(new ResponseHandler(201, "File(s) successfully uploaded.").result());
+                return res.redirect("/AllFiles");
             }
 
         })
@@ -97,17 +93,6 @@ class FileContainer {
         })
 
         return res.render("allFiles", {details: rows});
-        // if(rows.length === 0){
-        // //     return res 
-        // //     .status(404)
-        // //     .json(new ResponseHandler(404, "No Files Yet.").result());
-
-        // // }else {
-        // //     return res 
-        // //     // .status(200)
-        // //     // .json(new ResponseHandler(201, "All files", rows).result())
-
-        // }
     }
 
 
@@ -115,7 +100,6 @@ class FileContainer {
 
         const {file_name} = req.params; 
         const {rows} = await FileModel.getOne(file_name); 
-        // const theFile = rows[0];
 
         if(rows.length === 0){
             return res 

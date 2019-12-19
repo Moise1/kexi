@@ -45,19 +45,19 @@
 
     <main class="main-container">
 
-        <form method="POST" action="/upload" enctype="multipart/form-data" class="form">
+        <form method="POST" action="/upload" enctype="multipart/form-data" class="files-form">
 
-            <div class="new-file left">
+            <div class="new-file-left">
                 <label class="btn btn-success add" for="files"> Choose File</label>
                 <input type="file" id="files" name="files" multiple/>
             </div>
 
-            <div class="files-container center" id="selectedFiles">
+            <div class="files-count-center" id="selectedFiles">
 
             </div>
 
-            <div class="upload right">
-                <input type="submit" name="uplod_button" value="Upload" class="btn btn-success" />
+            <div class="file-upload-right">
+                <input type="submit" name="upload_button" value="Upload" class="btn btn-success" />
             </div>
         </form>
 
@@ -73,13 +73,13 @@
                     <th>Name</th>
                     <th>Type</th>
                     <th>Size</th>
-                    <th>Uploaded At</th>
+                    <th>Uploaded On</th>
                 </tr>
             </thead>
             <tbody>
                 <% details.forEach(file => { %>
                     <tr>
-                            <td><%=file.file_name%></td>
+                            <td><a href="#"><%=file.file_name%></a></td>
                            <td><%=file.file_type%></td>
                            <td><%=file.file_size%></td>
                            <td><%=file.uploaded_at%></td>

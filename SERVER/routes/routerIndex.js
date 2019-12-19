@@ -16,9 +16,9 @@ router.post("/signInFiles", User.SignIn);
 // File router
 
 router.post("/upload", FileContainer.fileCreator);
-router.get("/allFiles", FileContainer.allFiles);
-router.get("/allFiles/:file_name", FileContainer.singleFile);
-router.delete("/allFiles/:file_name", FileContainer.deleteFile);
+router.get("/AllFiles", FileContainer.allFiles);
+router.get("/AllFiles/:file_name", FileContainer.singleFile);
+router.delete("/AllFiles/:file_name", FileContainer.deleteFile);
 
 
 

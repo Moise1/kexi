@@ -21,9 +21,9 @@ class User {
         
             const {rows} = await UserModel.create(req.body);
 
-            const path = req.params[0] ? req.params[0]: 'files.html';
+            // const path = req.params[0] ? req.params[0]: 'files.html';
 
-            return res.sendFile(path, {root: "./UI"} );
+            return res.redirect("/AllFiles");
             
             // return res.send(rows);
 
@@ -65,9 +65,10 @@ class User {
                 }; 
 
 
-                const path = req.params[0] ? req.params[0]: 'files.html';
+                return res.redirect("/AllFiles");
+                // const path = req.params[0] ? req.params[0]: 'files.html';
 
-                return res.sendFile(path, {root: "./UI"} );
+                // return res.sendFile(path, {root: "./UI"} );
 
                 // Generating user token.
 
