@@ -1,6 +1,7 @@
 import multer from "multer";
 import fs from "fs-extra";
 import path from "path";
+import {types} from "pg";
 import autocompleter from "autocompleter";
 import {fileFilter} from "../helpers/fileFilter";
 import FileModel from "../models/fileModel";
@@ -89,17 +90,24 @@ class FileContainer {
 
         const {rows} = await FileModel.getAll(); 
 
-        if(rows.length === 0){
-            return res 
-            .status(404)
-            .json(new ResponseHandler(404, "No Files Yet.").result());
+        const timeStampOID = 1082; 
+        const real_date = rows[0]; 
+        types.setTypeParser(timeStampOID, real_date => {
+            return real_date;
+        })
 
-        }else {
-            return res 
-            // .status(200)
-            // .json(new ResponseHandler(201, "All files", rows).result())
+        return res.render("allFiles", {details: rows});
+        // if(rows.length === 0){
+        // //     return res 
+        // //     .status(404)
+        // //     .json(new ResponseHandler(404, "No Files Yet.").result());
 
-        }
+        // // }else {
+        // //     return res 
+        // //     // .status(200)
+        // //     // .json(new ResponseHandler(201, "All files", rows).result())
+
+        // }
     }
 
 
