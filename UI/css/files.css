@@ -1,5 +1,6 @@
 body {
     background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
 }
 
 
@@ -53,7 +54,6 @@ body {
     }
 
 
-
     .new-file-left label {
         cursor: pointer;
         margin-left: 45%;
@@ -70,6 +70,9 @@ body {
         max-height: 300px;
         margin-top: 80px;
         position: relative;
+        width: 50%;
+        left: 25%; 
+        margin-top: 10%;
     }
 
 
@@ -84,21 +87,22 @@ body {
         margin-left: 10%;
         width: 15%;
         padding-left: 0;
+        cursor: pointer;
+        margin-top: 6%;
     }
 
     .files-form .files-count-center {
-        width: 10%;
-        position: absolute;
-        margin-left: 30%;
-        margin-top: -6%; 
+        width: 20%;
+        margin-left: 40%;
+        margin-top: -10%; 
         height: 50px;
     }
 
     .files-form .file-upload-right {
         width: 6%;
-        margin-left: 50%;
-        position: absolute;
-        margin-top: -5%;
+        margin-left: 65%;
+        margin-top: -12%;
+        cursor: pointer;
     }
 
     .footer-container {
@@ -184,6 +188,9 @@ body {
         max-height: 300px;
         margin-top: 80px;
         position: relative;
+        width: 50%;
+        left: 25%; 
+        margin-top: 10%;
     }
 
 
@@ -198,21 +205,23 @@ body {
         margin-left: 10%;
         width: 15%;
         padding-left: 0;
+        cursor: pointer;
     }
 
     .files-form .files-count-center {
-        width: 10%;
+        width: 20%;
         position: absolute;
-        margin-left: 30%;
-        margin-top: -5%; 
+        margin-left: 40%;
+        margin-top: -10%; 
         height: 50px;
     }
 
     .files-form .file-upload-right {
         width: 6%;
-        margin-left: 40%;
+        margin-left: 65%;
         position: absolute;
-        margin-top: -5%;
+        margin-top: -11%;
+        cursor: pointer;
     }
     .footer-container {
         position: fixed;
@@ -324,9 +333,9 @@ body {
 
     .files-form .file-upload-right {
         width: 6%;
-        margin-left: 70%;
+        margin-left: 60%;
         position: absolute;
-        margin-top: 1%;
+        margin-top: -11%;
     }
 
 

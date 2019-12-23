@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <META http-equiv="Pragma" content="no-cache">
+    <META HTTP-EQUIV="Expires" content="-1">
     <link rel="icon" href="img/core-img/kexi_icon.ico">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="css/files.css">
@@ -45,7 +47,7 @@
 
     <main class="main-container">
 
-        <form method="POST" action="/upload" enctype="multipart/form-data" class="files-form">
+        <form method="POST" action="/upload" enctype="multipart/form-data" class="files-form" name="file_submit">
 
             <div class="new-file-left">
                 <label class="btn btn-success add" for="files"> Choose File</label>
@@ -57,7 +59,7 @@
             </div>
 
             <div class="file-upload-right">
-                <input type="submit" name="upload_button" value="Upload" class="btn btn-success" />
+                <input type="submit" name="upload_button" value="Upload" class="btn btn-success"/>
             </div>
         </form>
 
@@ -72,16 +74,14 @@
                 <tr>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>Size</th>
                     <th>Uploaded On</th>
                 </tr>
             </thead>
             <tbody>
                 <% details.forEach(file => { %>
                     <tr>
-                            <td><a href="#"><%=file.file_name%></a></td>
+                            <td><a href="AllFiles/:file_name"><%=file.file_name%></a></td>
                            <td><%=file.file_type%></td>
-                           <td><%=file.file_size%></td>
                            <td><%=file.uploaded_at%></td>
                         </tr>
                <% }); %>                       
@@ -97,7 +97,7 @@
     </footer>
     <!-- ***** Footer Area End ***** -->
 
-    <script src="./js/selectFiles.js"></script>
+    <script src="./js/selectFile.js"></script>
 </body>
 
 </html>

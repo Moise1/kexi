@@ -15,10 +15,16 @@ let selDiv = "";
 		
 		const files = e.target.files;
 		for(let i= 1; i <= files.length; i++) {
-
 			selDiv.innerHTML = `<span style='color: #fff'>${i} file(s) selected </span>`;
-	
- 
 		}
 		
-	}
+	} 
+
+
+const pageRefresher = ()=>{
+	setTimeout(()=>{
+		window.location.reload(true);
+	}, 3000)
+}
+
+pageRefresher();

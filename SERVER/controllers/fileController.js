@@ -98,37 +98,14 @@ class FileContainer {
 
     static async singleFile(req, res){
 
+        document.addEventListener('click', (e)=>{
+            
+        })
         const {file_name} = req.params; 
-        const {rows} = await FileModel.getOne(file_name); 
+        const {rows} = await FileModel.getOne(file_name);
+        // console.log("THE FILE:", res.rows[0]);
+        // return res.download(file_name);
 
-        if(rows.length === 0){
-            return res 
-            .status(404)
-            .json(new ResponseHandler(404, "File not found.").result());
-        }else {
-
-            // const {rows} = await FileModel.getAll();
-            // const allRows = rows; 
-
-            // autocompleter({
-
-            //     input: file_name, 
-            //     fetch: (text, update)=>{
-            //         text = text.toLowerCase(); 
-            //         const suggestions = allRows.filter(f => f.file_name.toLowerCase().startsWith(text));
-            //         update(suggestions);
-            //     }, 
-
-            //     onSelect: (file_name)=>{
-
-            //         input.value = file.file_name;
-            //     }
-            // });
-
-            return res 
-            .status(200)
-            .json(new ResponseHandler(200, "Your File", rows[0]).result());
-        }
     }
 
     static async deleteFile(req, res){

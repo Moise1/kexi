@@ -43,7 +43,7 @@ class FileModel{
     }
 
     static async getOne(file_name){
-        const queryText = "SELECT files.file_name FROM files WHERE file_name=$1";
+        const queryText = "SELECT * FROM files WHERE file_name=$1";
         const queryResult = await db.query(queryText, [file_name]);
         return queryResult;
     }
