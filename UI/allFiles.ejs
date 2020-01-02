@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <META http-equiv="Pragma" content="no-cache">
-    <META HTTP-EQUIV="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="img/core-img/kexi_icon.ico">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="css/files.css">
-
     <title>KEXI | Files </title>
 </head>
 
@@ -47,11 +47,13 @@
 
     <main class="main-container">
 
+        <div id="message"></div>
+
         <form method="POST" action="/upload" enctype="multipart/form-data" class="files-form" name="file_submit">
 
             <div class="new-file-left">
                 <label class="btn btn-success add" for="files"> Choose File</label>
-                <input type="file" id="files" name="files" multiple/>
+                <input type="file" id="files" name="files" multiple />
             </div>
 
             <div class="files-count-center" id="selectedFiles">
@@ -59,7 +61,7 @@
             </div>
 
             <div class="file-upload-right">
-                <input type="submit" name="upload_button" value="Upload" class="btn btn-success"/>
+                <input type="submit" name="upload_button" id="uploadButton" value="Upload" class="btn btn-success" />
             </div>
         </form>
 
@@ -79,25 +81,32 @@
             </thead>
             <tbody>
                 <% details.forEach(file => { %>
-                    <tr>
-                            <td><a href="AllFiles/:file_name"><%=file.file_name%></a></td>
-                           <td><%=file.file_type%></td>
-                           <td><%=file.uploaded_at%></td>
-                        </tr>
-               <% }); %>                       
-           </tbody>
+                <tr>
+                    <td><a href="AllFiles/:file_name"><%=file.file_name%></a></td>
+                    <td><%=file.file_type%></td>
+                    <td><%=file.uploaded_at%></td>
+                </tr>
+                <% }); %>
+            </tbody>
         </table>
 
     </main>
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer">
-            <p class="text-white">Copyright &copy;<script>
-                    document.write(new Date().getFullYear());
-                </script> &nbsp; KEXI CONSULT Ltd. All rights reserved.</p>
+        <p class="text-white">Copyright &copy;<script>
+                document.write(new Date().getFullYear());
+            </script> &nbsp; KEXI CONSULT Ltd. All rights reserved.</p>
     </footer>
     <!-- ***** Footer Area End ***** -->
 
     <script src="./js/selectFile.js"></script>
+    <!-- Enabling Alerts -->
+    <!-- JQuery neccessary files uploading success -->
+    <script src="./js/jquery/upload.js"></script>
+    <!-- Popper js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-alert.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

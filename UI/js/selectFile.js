@@ -20,11 +20,3 @@ let selDiv = "";
 		
 	} 
 
-
-const pageRefresher = ()=>{
-	setTimeout(()=>{
-		window.location.reload(true);
-	}, 3000)
-}
-
-pageRefresher();
