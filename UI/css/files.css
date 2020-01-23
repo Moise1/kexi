@@ -70,16 +70,6 @@ body {
         position: relative;
     }
 
-    #message {
-        position: absolute;
-        height: 30%;
-        width: 40%;
-        left: 30%;
-        text-align: center;
-        padding: 20px;
-        margin-top: -6%;
-        font-size: 15px;
-    }
 
     .files-form {
         max-height: 100px;
@@ -116,7 +106,7 @@ body {
     .files-form .file-upload-right {
         width: 6%;
         margin-left: 65%;
-        margin-top: -10%;
+        margin-top: -13%;
         cursor: pointer;
     }
 
@@ -132,6 +122,14 @@ body {
         padding: 0;
         text-align: center;
         font-size: 17px;
+    }
+
+     .alert {
+        position: absolute;
+        width: 60%;
+        padding: 10px;
+        margin: -6% 5% 0 20%;
+        text-align: center;
     }
 }
 
@@ -199,15 +197,7 @@ body {
         z-index: -1;
     }
 
-    /* .files-form {
-        max-height: 300px;
-        position: relative;
-        width: 50%;
-        left: 25%; 
-        margin-top: 10%;
-        padding: -20% 0 0 -20%;
-
-    } */
+    
 
 
     
@@ -252,6 +242,13 @@ body {
         text-align: center;
         font-size: 17px;
     }
+
+    /* .alert {
+        position: absolute;
+        width: 50%;
+        margin: -6% 5% 0 50%;
+        text-align: center;
+    } */
 }
 
 
