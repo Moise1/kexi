@@ -22,7 +22,7 @@ body {
     .search__input {
         width: 100%;
         padding: 12px 34px;
-        background-color: background-color: #f3f4f7;
+        background-color:  #f3f4f7;
         transition: transform 250ms ease-in-out;
         font-size: 14px;
         line-height: 18px;
@@ -76,17 +76,20 @@ body {
         position: relative;
         width: 50%;
         left: 25%; 
-        padding: -30% 0 0 0;
-        margin-top: 13%;
+        margin-top: 10%;
     }
-
-
     
+    .file-title a {
+        color: #fff;
+    }
+    .files-title a:focus{
+        transition: unset;
+
+    }
     .files-form  div {
         display: flex;
         margin-bottom: 30px;
     }
-
 
     .files-form .new-file-left {
         margin-left: 10%;
@@ -110,7 +113,7 @@ body {
         cursor: pointer;
     }
 
-    .footer-container {
+    .footer-text{
         position: fixed;
         left: 0;
         right: 0;
@@ -133,10 +136,7 @@ body {
     }
 }
 
-
-/* Ipad screen size */
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1024px) and (orientation: landscape) {
 
     .search__container {
         margin: 10px 40px 40px 0;
@@ -152,7 +152,7 @@ body {
     .search__input {
         width: 100%;
         padding: 12px 34px;
-        background-color: background-color: #f3f4f7;
+        background-color:  #f3f4f7;
         transition: transform 250ms ease-in-out;
         font-size: 14px;
         line-height: 18px;
@@ -183,8 +183,6 @@ body {
         background-position: 100% center;
     }
 
-
-
     .new-file-left label {
         cursor: pointer;
         margin-left: 45%;
@@ -197,16 +195,10 @@ body {
         z-index: -1;
     }
 
-    
-
-
-    
     .files-form  div {
         display: flex;
         margin-bottom: 30px;
     }
-
-
     .files-form .new-file-left {
         margin-left: 10%;
         width: 15%;
@@ -229,7 +221,7 @@ body {
         margin-top: -11%;
         cursor: pointer;
     }
-    .footer-container {
+    .footer-text{
         position: fixed;
         left: 0;
         right: 0;
@@ -243,16 +235,15 @@ body {
         font-size: 17px;
     }
 
-    /* .alert {
+    .alert {
         position: absolute;
         width: 50%;
         margin: -6% 5% 0 50%;
         text-align: center;
-    } */
+    }
 }
 
 
-/* Mobile screen size */
 
 @media only screen and (max-width: 700px) and (orientation: portrait) {
 
@@ -271,7 +262,7 @@ body {
     .search__input {
         width: 100%;
         padding: 12px 34px;
-        background-color: background-color: #f3f4f7;
+        background-color: #f3f4f7;
         transition: transform 250ms ease-in-out;
         font-size: 14px;
         line-height: 18px;
@@ -301,9 +292,6 @@ body {
         border-radius: 0;
         background-position: 100% center;
     }
-
-
-
     .new-file-left label {
         cursor: pointer;
         margin-left: 45%;
@@ -322,20 +310,16 @@ body {
         position: relative;
     }
 
-
-    
     .files-form{
         display: flex;
         margin-bottom: 20px;
     }
-
 
     .files-form .new-file-left {
         margin-left: 10%;
         width: 15%;
         padding-left: 0;
     }
-
     .files-form .files-count-center {
         width: 10%;
         position: absolute;
@@ -352,7 +336,7 @@ body {
     }
 
 
-    .footer-container {
+    .footer-text{
         position: fixed;
         left: 0;
         right: 0;
@@ -367,10 +351,9 @@ body {
     }
 }
 
+*/
 
-/* Small phone screen size*/
-
-@media only screen and (min-width: 300px) and (orientation: portrait) {
+ @media only screen and (min-width: 300px) and (orientation: portrait) {
 
     .search__container {
         margin: 10% 0 10% -120%;
@@ -386,7 +369,7 @@ body {
     .search__input {
         width: 100%;
         padding: 12px 34px;
-        background-color: background-color: #f3f4f7;
+        background-color:  #f3f4f7;
         transition: transform 250ms ease-in-out;
         font-size: 14px;
         line-height: 18px;
@@ -417,8 +400,6 @@ body {
         background-position: 100% center;
     }
 
-
-
     .new-file-left label {
         cursor: pointer;
         margin-left: 45%;
@@ -436,14 +417,11 @@ body {
         margin-top: 80px;
         position: relative;
     }
-
-
     
     .files-form{
         display: flex;
         margin-bottom: 20px;
     }
-
 
     .files-form .new-file-left {
         margin-left: 10%;
@@ -465,11 +443,7 @@ body {
         position: absolute;
         margin-top: 1%;
     }
-
-
-
-
-    .footer-container {
+    .footer-text {
         position: fixed;
         left: 0;
         right: 0;
@@ -482,4 +456,4 @@ body {
         text-align: center;
         font-size: 17px;
     }
-}
+} 

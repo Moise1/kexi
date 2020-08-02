@@ -11,14 +11,16 @@ router.use(json());
 
 // User router 
 
-router.post("/signUpFiles", User.SignUp); 
-router.post("/signInFiles", User.SignIn);
+router.post("/signup_auth", User.SignUp); 
+router.post("/login_auth", User.SignIn);
+
 // File router
 
 router.post("/upload", FileContainer.fileCreator);
-router.get("/AllFiles", FileContainer.allFiles);
+router.get("/documents", FileContainer.allFiles);
+router.get("/documents/:file_name", FileContainer.singleFile);
 router.get("/download", FileContainer.singleFile);
-router.delete("/AllFiles/:file_name", FileContainer.deleteFile);
+router.delete("/documents/:file_name", FileContainer.deleteFile);
 
 
 

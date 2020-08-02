@@ -14,13 +14,13 @@ import dbInit from "../db/dbInit";
 const storage = multer.diskStorage({
 
     destination: async (req, file, cb) => {
-        let path = './SERVER/uploads/';
+        let path = './server/uploads';
         fs.mkdirsSync(path);
         return cb(null, path);
     },
 
-    filename: async (req, file, cb) => {
-        await cb(null, file.originalname);
+    filename: (req, file, cb) => {
+       return cb(null, file.originalname);
     }
 });
 
@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 
 class FileContainer {
 
-    static fileCreator(req, res, next) {
+    static async fileCreator(req, res, next) {
 
         const uploader = multer({
             storage: storage,
@@ -54,15 +54,13 @@ class FileContainer {
             } else if (err instanceof multer.MulterError){
 
                 // Catching any server error that may occur 
-        
                 return res
                 .status(500)
-                .send(err);
+                .json(err);
 
             } else if (err) {
     
-                // Catching any other possible error 
-
+                // Catching any other possible error.
                 return res
                 .status(400)
                 .send(err);
@@ -70,13 +68,11 @@ class FileContainer {
             } else {
                 
                 // On successful upload.
-                
-                
-                req.files.filter(async f => {
-                   const {rows} = await FileModel.create(f.filename, f.mimetype, f.size)
-                });
+             req.files.filter(async f => {
+                    console.log(f);
+                    await FileModel.create(f.filename, f.mimetype, f.size)
+                }); 
 
-                return res.redirect("/AllFiles");
             }
 
         })
@@ -84,6 +80,7 @@ class FileContainer {
 
     static async allFiles(req, res){
 
+       try{
         const {rows} = await FileModel.getAll(); 
 
         const timeStampOID = 1082; 
@@ -91,20 +88,21 @@ class FileContainer {
         types.setTypeParser(timeStampOID, real_date => {
             return real_date;
         })
-
-        return res.render("allFiles", {details: rows});
+        return res.render("documents", {data: rows});
+       }catch(error){
+        console.log("ERROR", error)
+        return res
+        .status(500)
+        .json(error)
+       }
     }
 
 
     static async singleFile(req, res){
-
-        document.addEventListener('click', (e)=>{
-            
-        })
+        
         const {file_name} = req.params; 
         const {rows} = await FileModel.getOne(file_name);
-        // console.log("THE FILE:", res.rows[0]);
-        // return res.download(file_name);
+        return res.send(rows[0]);
 
     }
 
