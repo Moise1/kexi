@@ -1,0 +1,10 @@
+@media(max-width: 667px){
+    .body-container{
+        margin-top: 40%;
+    }
+    
+    #singninFrom > div {
+        width: 100%;
+    }
+}
+

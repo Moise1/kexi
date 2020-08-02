@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="./css/archive.css">
+</head>
+
+<body>
+    <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
+        <div class="col-sm-12 border border-success shadow">
+
+            <form id="singninFrom" class="col-4 offset-4" action="/login_auth" method="POST">
+                <div class="form-group">
+                    <label class="font-weight-bold">Email <span class="text-danger">*</span></label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter valid email"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">Password <span class="text-danger">*</span></label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="***********"
+                        required>
+                </div>
+                <div class="form-group">
+                    <div class="text-left">
+                        <a href="javascript:;" data-toggle="modal" data-target="#forgotPass" class="text-success">Forgot
+                            Password?</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit" value="Sign In" class="btn btn-block btn-success" id="loginBtn">
+                        Log In
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

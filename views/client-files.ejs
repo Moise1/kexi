@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/core-img/kexi_icon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="css/client-files.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>KEXI | Docoments </title>
+</head>
+
+<body>
+
+    <!-- Header starts -->
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="menu-area d-flex justify-content-between">
+                        <!-- Logo Area  -->
+                        <div class="logo-area">
+                            <a href="index.html">KEXI</a>
+                        </div>
+                        <div class="logout-container">
+                            <form action="/logout" method="POST" class="logout mt-3">
+                                <button class="btn btn-danger">Log Out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header ends -->
+
+    <!-- Modal Starts -->
+    <div class="modal fade" id="deleteFileModal" tabindex="-1" role="dialog" aria-labelledby="deleteFileModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    Are you sure ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger" id="deleteOption" form="deletingForm">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ended -->
+
+
+    <!-- Uploading file form starts -->
+
+    <!-- <form method="POST" action="/client-files" enctype="multipart/form-data" class="files-form col-md-6"
+            name="file_submit">
+
+
+
+            <div class="new-file-left">
+                <label class="btn btn-success add" for="files"> Choose File</label>
+                <input type="file" id="files" name="files" multiple />
+            </div>
+
+            <div class="files-count-center" id="selectedFiles">
+
+            </div>
+
+            <div class="file-upload-right">
+                <input type="submit" name="upload_button" value="Upload" id="uploadButton"
+                    class="btn btn-success col-xs mt-3" />
+            </div>
+        </form> -->
+
+    <!-- Uploading file form ends -->
+
+
+    <div class="container">
+
+        <div class="row justify-content-center" style="margin: 7rem 0 2rem 0">
+            <form action="/client-files" method="POST" class="folder-form">
+                <button class="folder-icon" type="submit">
+                    <i class="fa fa-folder fa-3x tex-center" title="Create New Folder"></i>
+                </button>
+                <span class="plus-sign">+</span>
+            </form>
+        </div>
+
+        <div class="table-area">
+            <% if(data) { %>
+            <table class="responsive-table table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i= 0; i < data.length; i++){  %>
+                    <tr>
+                        <td>
+                            <span> <i class="fa fa-folder fa-2x child-folder" title="Create New Folder"></i></span>
+                        </td>
+                        <!-- <td class="file-title"><a href="documents/<%=data[i].file_name%>"
+                                                            download="<%=data[i].file_name%>"><%=data[i].file_name%></a></td> -->
+
+                        <td><%= data[i].creator_name%></td>
+                        <td><%=data[i].created_at%></td>
+                        <td>
+                            <form id="deletingForm" action="/documents/<%= data[i].file_id%>?_method=DELETE"
+                                method="POST" onsubmit="preventDefaultSubmission()">
+                                <span class="fa fa-trash" data-toggle="modal" data-target="#deleteFileModal"></span>
+                            </form>
+                        </td>
+                    </tr>
+
+                    <% }; %>
+                </tbody>
+            </table>
+            <% }; %>
+        </div>
+
+    </div>
+
+     <!-- jQuery (Necessary for All JavaScript Plugins) -->
+     <script src="js/jquery/jquery-2.2.4.min.js"></script>
+     <!-- Popper js -->
+     <script src="js/popper.min.js"></script>
+     <!-- Bootstrap js -->
+     <script src="js/bootstrap.min.js"></script>
+     <!-- Plugins js -->
+     <script src="js/plugins.js"></script>
+     <!-- Active js -->
+     <script src="js/active.js"></script>
+    <script>
+
+        function preventDefaultSubmission(e) {
+            e.preventDefault();
+        }
+    </script>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+
+</html>
